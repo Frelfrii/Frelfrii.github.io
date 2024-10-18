@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Bucin</title>
+    <!-- Link Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f8ff; /* Latar belakang biru muda */
+            overflow: hidden; /* Mencegah scrollbar */
+        }
+
+        header {
+            background-color: #3b5998; /* Biru Facebook */
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            font-family: 'Lobster', cursive; /* Menggunakan font baru untuk judul */
+            font-size: 2.5em; /* Ukuran font judul */
+        }
+
+        nav {
+            margin: 15px 0;
+        }
+
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        .quote {
+            font-style: italic;
+            font-size: 1.2em;
+            margin: 20px 0;
+            text-align: center;
+            color: #333;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .grid-item {
+            background-color: #fff;
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .grid-item img {
+            width: 100%;
+            height: auto;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #3b5998; /* Biru Facebook */
+            color: white;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .quiz {
+            text-align: center;
+            margin-top: 20px;
+            display: none; /* Sembunyikan quiz awalnya */
+        }
+
+        .quiz input {
+            margin: 10px;
+            padding: 10px;
+            width: 60%;
+        }
+
+        .quiz button {
+            padding: 10px 20px;
+        }
+
+        .social-links {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: inline-block;
+            margin: 0 10px;
+            color: white; /* Warna teks */
+            font-size: 30px; /* Ukuran ikon */
+            padding: 10px; /* Jarak dalam ikon */
+            border-radius: 50%; /* Membuat ikon berbentuk bulat */
+            transition: transform 0.3s; /* Transisi saat hover */
+        }
+
+        /* Gaya untuk setiap ikon sosial media */
+        .social-links a.tiktok {
+            background-color: #69C9D0; /* Warna latar TikTok */
+        }
+
+        .social-links a.instagram {
+            background-color: #E1306C; /* Warna latar Instagram */
+        }
+
+        .social-links a.whatsapp {
+            background-color: #25D366; /* Warna latar WhatsApp */
+        }
+
+        .social-links a.spotify {
+            background-color: #1DB954; /* Warna latar Spotify */
+        }
+
+        .social-links a:hover {
+            transform: scale(1.1); /* Efek zoom saat hover */
+        }
+
+        /* Gaya untuk Spotify */
+        .spotify-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Selamat Datang di Website Bucin</h1>
+        <nav>
+            <a href="#home">Beranda</a>
+            <a href="#gallery">Galeri</a>
+            <a href="#games" onclick="toggleGames()">Game</a>
+            <a href="#contact">Kontak</a>
+        </nav>
+    </header>
+    
+    <div class="container">
+        <section id="home">
+            <h2>Quotes Dari ku 3 tahun yang lalu</h2>
+            <p class="quote">"Cinta adalah segalanya, dan aku adalah segalanya untukmu.ketika 
+                dunia mempertemukan kita,maka dunia pun merestui"</p>
+        </section>
+
+        <section id="gallery">
+            <h2>Galeri Foto Bucin</h2>
+            <div class="grid-container">
+                <div class="grid-item"><img src="gambar1.jpg" alt="Gambar 1"></div>
+                <div class="grid-item"><img src="gambar2.jpg" alt="Gambar 2"></div>
+                <div class="grid-item"><img src="gambar3.jpg" alt="Gambar 3"></div>
+                <!-- Tambahkan lebih banyak gambar sesuai kebutuhan -->
+            </div>
+        </section>
+
+        <section id="games">
+            <h2>Game Bucin</h2>
+            <button onclick="toggleGame('tebakTebakan')">Tebak-Tebakan</button>
+            <div id="tebakTebakan" class="quiz">
+                <h3>Game Tebak-Tebakan</h3>
+                <input type="text" placeholder="Tebak jawabannya...">
+                <button onclick="checkAnswer()">Tebak!</button>
+                <p id="quizResult"></p>
+            </div>
+        </section>
+
+        <section class="spotify-container">
+            <h2>Playlist Spotify</h2>
+            <button onclick="toggleSpotify()">Tampilkan Playlist</button>
+            <div id="spotifyFrame" style="display: none;">
+                <iframe src="https://open.spotify.com/embed/playlist/1yBCx8xJgXEIJ9HrNvclr0?si=VAMbtj4AT9K0i1thk28FyQ" width="100%" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>Kontak Kami</h2>
+            <p>Email: info@bucin.com</p>
+            <div class="social-links">
+                <a href="https://www.tiktok.com/@meiilovv?_t=8qdxYcnans8&_r=1" class="tiktok" target="_blank">
+                    <i class="fab fa-tiktok"></i>
+                </a>
+                <a href="https://www.tiktok.com/@hai_my_name?_t=8qdxbtps0JN&_r=1" class="tiktok" target="_blank">
+                    <i class="fab fa-tiktok"></i>
+                </a>
+                <a href="https://www.instagram.com/cch0kies/" class="instagram" target="_blank">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.instagram.com/farlfriii/" class="instagram" target="_blank">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://wa.me/085721932485" class="whatsapp" target="_blank">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+                <a href="#" class="spotify" onclick="toggleSpotify()">
+                    <i class="fab fa-spotify"></i>
+                </a>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Website Bucin. Semua hak dilindungi.</p>
+    </footer>
+
+    <script>
+        function toggleGame(gameId) {
+            const gameElement = document.getElementById(gameId);
+            gameElement.style.display = gameElement.style.display === 'none' || gameElement.style.display === '' ? 'block' : 'none';
+        }
+
+        function checkAnswer() {
+            const answer = document.querySelector('.quiz input').value;
+            const result = document.getElementById('quizResult');
+            if (answer.toLowerCase() === 'cinta') {
+                result.textContent = 'Benar!';
+            } else {
+                result.textContent = 'Salah, coba lagi!';
+            }
+        }
+
+        function toggleSpotify() {
+            const spotifyFrame = document.getElementById('spotifyFrame');
+            spotifyFrame.style.display = spotifyFrame.style.display === 'none' || spotifyFrame.style.display === '' ? 'block' : 'none';
+        }
+    </script>
+</body>
+</html>
